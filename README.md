@@ -1,11 +1,19 @@
 # Crawl test site
 
 Five static pages (`index`, `about`, `services`, `team`, `contact`), each
-cross-linked via `<nav>` and each containing one easy-to-edit line:
+cross-linked via a top-level `<nav>` and each containing one easy-to-edit line:
 
 ```html
 <p id="content-marker"><strong>Content marker:</strong> home-v1</p>
 ```
+
+Note: navigation deliberately lives in its own `<nav>`, *not* inside
+`<header>`/`<footer>`/`<aside>`/`<form>` — those tags are excluded by default
+(`CrawlParams.excluded_tags`), and crawl4ai removes them from the page's DOM
+*before* it looks for links to follow. Put navigation inside one of those tags
+and the crawler finds zero outgoing links, no matter what `max_depth` is set to
+— that was the actual cause of only the home page getting crawled with the
+first version of this fixture.
 
 ## Publish
 
