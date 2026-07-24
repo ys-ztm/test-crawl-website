@@ -5,11 +5,13 @@
   <meta charset="UTF-8" />
   <title>About</title>
   <meta name="description" content="Crawl test fixture - about page" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
     <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
   </header>
 
   <nav>
@@ -17,17 +19,46 @@
     <a href="about.html">About</a> |
     <a href="services.html">Services</a> |
     <a href="team.html">Team</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="faq.html">FAQ</a> |
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
+    <img src="images/about.jpg" class="hero-image" alt="Sample photo representing the fictional Crawl Test Site office" />
+
     <h2>About</h2>
     <p>
       A short page describing a fictional test organization, used only to
       have distinct, stable content for crawl testing.
     </p>
-    <p id="content-marker"><strong>Content marker:</strong> about-v3</p>
+    <p>
+      Crawl Test Site was "founded" in 2019 as a placeholder consultancy with
+      no real clients, revenue, or employees. Its only purpose is to give a
+      web crawler something believable to read: a history, a mission
+      statement, and a handful of supporting pages that link to one another.
+    </p>
+    <h3>Our (fictional) mission</h3>
+    <p>
+      We claim to help imaginary clients modernize imaginary systems, one
+      invented case study at a time. Every statistic on this page is made up
+      and should not be cited anywhere.
+    </p>
+    <h3>Our (fictional) history</h3>
+    <ul>
+      <li>2019 - Founded as a two-person placeholder shop.</li>
+      <li>2021 - "Expanded" to a fictional second office.</li>
+      <li>2023 - Added the Training service line described on the Services page.</li>
+      <li>2026 - Rebuilt this site with more pages and sample images for crawl testing.</li>
+    </ul>
+
+    <p id="content-marker"><strong>Content marker:</strong> about-v4</p>
   </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
 </body>
 
 </html>

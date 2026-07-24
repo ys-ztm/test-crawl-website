@@ -5,11 +5,13 @@
   <meta charset="UTF-8" />
   <title>Services</title>
   <meta name="description" content="Crawl test fixture - services page" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
     <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
   </header>
 
   <nav>
@@ -17,18 +19,43 @@
     <a href="about.html">About</a> |
     <a href="services.html">Services</a> |
     <a href="team.html">Team</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="faq.html">FAQ</a> |
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
+    <img src="images/services.jpg" class="hero-image" alt="Sample photo representing the fictional services offered" />
+
     <h2>Services</h2>
-    <ul>
-      <li>Consulting</li>
-      <li>Support</li>
-      <li>Training</li>
-    </ul>
-    <p id="content-marker"><strong>Content marker:</strong> services-v2</p>
+    <p>Four fictional service lines, described in a bit more detail below.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Consulting</h3>
+        <p>Invented strategy sessions to help imaginary clients plan imaginary migrations.</p>
+      </div>
+      <div class="card">
+        <h3>Support</h3>
+        <p>Round-the-clock (fictional) support for systems that don't actually exist.</p>
+      </div>
+      <div class="card">
+        <h3>Training</h3>
+        <p>Placeholder workshops covering topics nobody will ever really attend.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Development</h3>
+        <p>Bespoke (fictional) tooling, built to spec for clients who are also fictional.</p>
+      </div>
+    </div>
+
+    <p id="content-marker"><strong>Content marker:</strong> services-v3</p>
   </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
 </body>
 
 </html>

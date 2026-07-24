@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>FAQ</title>
+  <meta name="description" content="Crawl test fixture - FAQ page" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="services.html">Services</a> |
+    <a href="team.html">Team</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="faq.html">FAQ</a> |
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <img src="images/faq.jpg" class="hero-image" alt="Sample photo for the FAQ page" />
+
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Is Crawl Test Site a real company?</summary>
+      <p>No. Every name, bio, and quote on this site is a placeholder.</p>
+    </details>
+    <details>
+      <summary>What is this site actually for?</summary>
+      <p>It's a static fixture used to test recurring web-crawl change detection, including link discovery and content-change detection across pages and images.</p>
+    </details>
+    <details>
+      <summary>Why does the navigation live in its own &lt;nav&gt; tag?</summary>
+      <p>Some crawlers exclude &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, and &lt;form&gt; from link discovery. Keeping navigation in a plain &lt;nav&gt; ensures every page is reachable.</p>
+    </details>
+    <details>
+      <summary>Are the images free to use?</summary>
+      <p>Yes. Photos come from Lorem Picsum, which serves freely usable stock photography with no attribution required.</p>
+    </details>
+
+    <p id="content-marker"><strong>Content marker:</strong> faq-v1</p>
+  </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,11 +1,17 @@
 # Crawl test site
 
-Five static pages (`index`, `about`, `services`, `team`, `contact`), each
-cross-linked via a top-level `<nav>` and each containing one easy-to-edit line:
+Eight static pages (`index`, `about`, `services`, `team`, `gallery`, `blog`,
+`faq`, `contact`), each cross-linked via a top-level `<nav>` and each
+containing one easy-to-edit line:
 
 ```html
-<p id="content-marker"><strong>Content marker:</strong> home-v1</p>
+<p id="content-marker"><strong>Content marker:</strong> home-v2</p>
 ```
+
+Pages also include free-to-use photos from [Lorem Picsum](https://picsum.photos/)
+(no attribution required), stored locally under `images/` with a deterministic
+`?seed=` per page so crawls stay stable across runs unless the fixture is
+intentionally changed. Shared layout/styling lives in `style.css`.
 
 Note: navigation deliberately lives in its own `<nav>`, *not* inside
 `<header>`/`<footer>`/`<aside>`/`<form>` — those tags are excluded by default
@@ -24,11 +30,11 @@ first version of this fixture.
 
 ## Testing change detection
 
-1. Create the crawl source, run it once — all 5 pages should show up in the
+1. Create the crawl source, run it once — all 8 pages should show up in the
    report as `new`.
-2. Run it again unchanged — all 5 should now show as `unchanged`, and the
+2. Run it again unchanged — all 8 should now show as `unchanged`, and the
    Status column's page count shouldn't grow.
-3. Edit one page's content-marker line (e.g. bump `about-v1` → `about-v2`),
+3. Edit one page's content-marker line (e.g. bump `about-v4` → `about-v5`),
    commit and push (GitHub Pages redeploys automatically within ~a minute).
 4. Run the crawl source again — only that one page should show as `updated`
-   in the report; the other four should stay `unchanged`.
+   in the report; the other seven should stay `unchanged`.

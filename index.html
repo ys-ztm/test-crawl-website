@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <title>Home</title>
   <meta name="description" content="Crawl test fixture - home page" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
   </header>
 
   <nav>
@@ -15,17 +17,67 @@
     <a href="about.html">About</a> |
     <a href="services.html">Services</a> |
     <a href="team.html">Team</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="faq.html">FAQ</a> |
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
+    <img class="hero-image" src="images/hero.jpg" alt="Wide scenic photo used as the homepage hero image" />
+
     <h2>Welcome</h2>
     <p>
       This is a small static site used to test recurring web-crawl change
-      detection. It has five pages, each with a short, easy-to-edit content
-      marker below.
+      detection. It has eight pages, each with a short, easy-to-edit content
+      marker below, plus a handful of free-to-use photos so the crawl also
+      has real image assets to discover.
     </p>
-    <p id="content-marker"><strong>Content marker:</strong> home-v1</p>
+    <p>
+      Crawl Test Site is a fictional consultancy that exists only inside this
+      repository. Nothing here refers to a real company, person, or place -
+      every name, quote, and bio is a placeholder chosen to stay stable
+      between crawl runs.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>About</h3>
+        <p>The (fictional) story and mission behind the site.</p>
+        <p><a href="about.html">Read more &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>Services</h3>
+        <p>What this placeholder company claims to offer.</p>
+        <p><a href="services.html">Read more &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>Team</h3>
+        <p>Four fictional team members and their bios.</p>
+        <p><a href="team.html">Read more &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>Gallery</h3>
+        <p>A small set of free-to-use sample photos.</p>
+        <p><a href="gallery.html">Read more &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>Blog</h3>
+        <p>Two short fictional news posts.</p>
+        <p><a href="blog.html">Read more &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>FAQ</h3>
+        <p>Answers to common questions about the test fixture.</p>
+        <p><a href="faq.html">Read more &rarr;</a></p>
+      </div>
+    </div>
+
+    <p id="content-marker"><strong>Content marker:</strong> home-v2</p>
   </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
 </body>
 </html>
