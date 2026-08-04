@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ys-ztm.github.io/test-crawl-website/sitemap.xml
