@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Sibling Page</title>
+  <meta name="description" content="Crawl test fixture - path-relative link target" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
+  </header>
+
+  <main>
+    <h2>Sibling page</h2>
+    <p>
+      This page exists only as the target of the path-relative link
+      (<code>href="sibling.html"</code>) in Section 2 of the
+      <a href="https://ys-ztm.github.io/test-crawl-website/edge-cases.html">Edge Cases</a> page.
+      It lives in the same folder as that page, which is what "path-relative" means here.
+    </p>
+
+    <p id="content-marker"><strong>Content marker:</strong> sibling-page-v1</p>
+  </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Base Tag Test</title>
+  <meta name="description" content="Crawl test fixture - <base> tag link resolution" />
+  <link rel="stylesheet" href="style.css" />
+  <base href="/some/other/path/" />
+</head>
+
+<body>
+  <header>
+    <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
+  </header>
+
+  <main>
+    <h2>&lt;base&gt; tag test</h2>
+    <p>
+      This page's <code>&lt;head&gt;</code> sets
+      <code>&lt;base href="/some/other/path/"&gt;</code>, which changes what
+      <em>every</em> relative URL on this page resolves against - including,
+      deliberately, the navigation links a normal page here would have. That's
+      why there's no site nav on this specific page: any relative link below
+      resolves against the <code>&lt;base&gt;</code>, not against this
+      page's own folder.
+    </p>
+    <p>
+      The link below has no leading slash, so per the HTML spec it must
+      resolve against the <code>&lt;base&gt;</code> href above, i.e. to
+      <code>https://&lt;host&gt;/some/other/path/next-doc.html</code> - not
+      to a file sitting next to this one:
+    </p>
+    <p><a href="next-doc.html">Relative link, resolved against &lt;base&gt;</a></p>
+    <p>
+      That target doesn't exist; a correct resolver should still report the
+      fully-resolved URL above rather than
+      <code>https://&lt;host&gt;/test-crawl-website/next-doc.html</code>.
+    </p>
+
+    <p id="content-marker"><strong>Content marker:</strong> base-tag-test-v1</p>
+
+    <p><a href="https://ys-ztm.github.io/test-crawl-website/edge-cases.html">&larr; Back to Edge Cases</a> (absolute link, unaffected by the &lt;base&gt; tag above)</p>
+  </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
+</body>
+
+</html>

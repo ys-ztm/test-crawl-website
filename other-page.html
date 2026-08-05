@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Other Page</title>
+  <meta name="description" content="Crawl test fixture - root-relative link target" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
+  </header>
+
+  <main>
+    <h2>Other page</h2>
+    <p>
+      This page exists only as the target of the root-relative link
+      (<code>href="/other-page.html"</code>) in Section 1 of the
+      <a href="https://ys-ztm.github.io/test-crawl-website/edge-cases.html">Edge Cases</a> page.
+    </p>
+    <p>
+      It's deliberately kept at the repository root so that on a GitHub
+      Pages <strong>user/org</strong> site (served at the domain root) the
+      root-relative link resolves here correctly, while on a GitHub Pages
+      <strong>project</strong> site (served under <code>/test-crawl-website/</code>)
+      the same link resolves to the domain root instead and misses this
+      file entirely - that mismatch is the point of the test case.
+    </p>
+
+    <p id="content-marker"><strong>Content marker:</strong> other-page-v1</p>
+  </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
+</body>
+
+</html>
