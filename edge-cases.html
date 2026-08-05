@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Edge Cases</title>
+  <meta name="description" content="Crawl test fixture - link-resolution edge cases" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Crawl Test Site</h1>
+    <p>A small fictional organization used to test web-crawl change detection</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="services.html">Services</a> |
+    <a href="team.html">Team</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="faq.html">FAQ</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="edge-cases.html">Edge Cases</a>
+  </nav>
+
+  <main>
+    <h2>Link-resolution edge cases</h2>
+    <p>
+      Eight cases a link/URL resolver has to get right, each in its own
+      section below. Some targets deliberately don't resolve to a real page
+      on this site - see the notes in each section for why that's expected.
+    </p>
+
+    <article id="section-1">
+      <h3>1. Root-relative link</h3>
+      <p>A link starting with a single slash resolves against the site's origin (scheme + host), not the folder the current page lives in.</p>
+      <p><a href="/other-page.html">Root-relative link to /other-page.html</a></p>
+      <p class="note"><em>Note:</em> this repo is hosted as a GitHub Pages <strong>project</strong> site, served under a repo subpath rather than the domain root. A correctly-resolving crawler will therefore treat this as <code>https://&lt;host&gt;/other-page.html</code> - outside the repo subpath - not <code>.../test-crawl-website/other-page.html</code>. Getting that "wrong" (i.e. resolving it relative to the repo folder instead of the domain root) is the bug this case is meant to catch.</p>
+    </article>
+
+    <article id="section-2">
+      <h3>2. Path-relative link</h3>
+      <p>A link with no leading slash resolves relative to the current page's own folder.</p>
+      <p><a href="sibling.html">Path-relative link to sibling.html</a></p>
+    </article>
+
+    <article id="section-3">
+      <h3>3. Protocol-relative link</h3>
+      <p>A link starting with <code>//</code> keeps the current page's protocol (http/https) but points at a different host.</p>
+      <p><a href="//example.com/thing">Protocol-relative link to //example.com/thing</a></p>
+    </article>
+
+    <article id="section-4">
+      <h3>4. Fragment-only link</h3>
+      <p>A link that is only a <code>#fragment</code> stays on the current page and should not be treated as a new URL to fetch.</p>
+      <p><a href="#section-2">Fragment-only link back to Section 2</a></p>
+    </article>
+
+    <article id="section-5">
+      <h3>5. mailto: and tel: links</h3>
+      <p>Neither of these is an HTTP(S) resource; a crawler should leave both alone rather than trying to fetch them.</p>
+      <p><a href="mailto:test@example.invalid">mailto: link</a></p>
+      <p><a href="tel:+15550100000">tel: link</a></p>
+    </article>
+
+    <article id="section-6">
+      <h3>6. Normal absolute link (control case)</h3>
+      <p>A fully-qualified URL to an external, unrelated domain. This is the baseline every other case above is compared against.</p>
+      <p><a href="https://example.com/x">Absolute link to https://example.com/x</a></p>
+    </article>
+
+    <article id="section-7">
+      <h3>7. Relative link under a &lt;base&gt; tag</h3>
+      <p>
+        A <code>&lt;base href&gt;</code> changes what every relative link on
+        that page resolves against, so this case needs its own document -
+        it can't be demonstrated inline on this page.
+      </p>
+      <p><a href="base-tag-test.html">Open the base-tag test page</a></p>
+    </article>
+
+    <article id="section-8">
+      <h3>8. Relative link inside a non-standard custom element</h3>
+      <p>
+        Mimics JS-framework markup (e.g. web components, like YouTube's
+        <code>&lt;ytd-*&gt;</code> elements) where the "link" isn't a plain
+        <code>&lt;a&gt;</code> tag, so a naive HTML-to-Markdown converter
+        may not recognize it as an anchor and could pass the href through
+        unresolved, or miss it entirely.
+      </p>
+      <my-custom-card>
+        <my-custom-card-body>
+          <my-custom-link href="/deep/relative/path">Deeply nested custom-element link</my-custom-link>
+        </my-custom-card-body>
+      </my-custom-card>
+    </article>
+
+    <p id="content-marker"><strong>Content marker:</strong> edge-cases-v1</p>
+  </main>
+
+  <footer>
+    <p>&copy; Crawl Test Site - fictional content for crawler testing only.</p>
+  </footer>
+</body>
+
+</html>
